@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vuejs</title>
+</head>
+<body>
+
+
+<div id="root">
+	<textarea style="width: 100%" rows="10" v-model="title"></textarea>
+	<h1 v-html="title"></h1>
+	<button v-on:click='change' >Change Message</button>
+</div>
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el: '#root',
+		data: {
+			message: 'Hello Vuejs',
+			title: ''
+		},
+		methods:{
+			change () {
+				// change message value
+				this.message = this.title
+				console.log(this.title)
+
+			}
+
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+<div id="form" style="padding-top: 30px;padding-bottom: 30px">
+    <div class="form-group">
+        <input class="form-control" type="text" name="name" v-model="name" placeholder="Name...">
+    </div>
+    <div class="form-group">
+        <input type="radio" name="gender" id="male" value="male" v-model="gender">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female" v-model="gender">
+        <label for="female">Female</label>
+        <input class="form-control" type="date" v-model="date">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" name="bio" cols="20" rows="10" v-model="bio" placeholder="Biology..."></textarea>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div style="text-align: center" class="form-group">
+                <button style="background-color: red;border-color:red;" class="btn btn-sm btn-primary" @click="clear">Clear</button>
+                <button style="background-color: green;border-color:green" class="btn btn-sm btn-primary" @click="save">Save</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <td>{{ name1 }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ gender1 }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ date1 }}</td>
+            </tr>
+            <tr>
+                <th>Bioglogy</th>
+                <td>{{ bio1 }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#form',
+        data: {
+            message:'Your saved successful!',
+            name: '',
+            bio: '',
+            gender: '',
+            date: '',
+
+            name1: '',
+            bio1: '',
+            gender1: '',
+            date1: '',
+
+            name0: '',
+            bio0: '',
+            gender0: '',
+            date0: ''
+        },
+        methods: {
+
+            save() {
+                this.name1 = this.name,
+                    this.gender1 = this.gender,
+                    this.bio1 = this.bio,
+                    this.date1 = this.date
+            },
+            clear() {
+                this.name1 = this.name0,
+                    this.gender1 = this.gender0,
+                    this.bio1 = this.bio0,
+                    this.date1 = this.date0
+                this.name = this.name0,
+                    this.gender = this.gender0,
+                    this.bio = this.bio0,
+                    this.date = this.date0
+            }
+        }
+    })
+</script>
+</body>
+</html>
